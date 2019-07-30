@@ -1,0 +1,185 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% DOCUMENT PREAMBLE %%%
+\documentclass[12pt]{report}
+\usepackage[english]{babel}
+%\usepackage{natbib}
+\usepackage{url}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\graphicspath{{images/}}
+\usepackage{parskip}
+\usepackage{fancyhdr}
+\usepackage{vmargin}
+\setmarginsrb{3 cm}{2.5 cm}{3 cm}{2.5 cm}{1 cm}{1.5 cm}{1 cm}{1.5 cm}
+
+\title{Software Engineering Process - SOEN 6011}								
+% Title
+\author{ }						
+% Author
+\date{}
+% Date
+
+\makeatletter
+\let\thetitle\@title
+\let\theauthor\@author
+\let\thedate\@date
+\makeatother
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\theauthor}
+\lhead{\thetitle}
+\cfoot{\thepage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{titlepage}
+	\centering
+    \vspace*{0.5 cm}
+   
+\begin{center}    \textsc{\Large   }\\[2.0 cm]	\end{center}
+
+	\textsc{\Large Individual Report  }\\[0.5 cm]
+	\textsc{\Large Delivery 2  }\\[0.5 cm]% Course Code
+	\rule{\linewidth}{0.2 mm} \\[0.4 cm]
+	{ \huge \bfseries \thetitle}\\
+	\rule{\linewidth}{0.2 mm} \\[1.5 cm]
+	
+	\begin{minipage}{0.4\textwidth}
+		\begin{center} \large
+		%	\emph{Submitted To:}\\
+		%	Name\\
+          % Affiliation\\
+           %contact info\\
+			\end{center}
+			\end{minipage}~
+			\begin{center}{}
+            
+			\begin{center} \large
+			\emph{Submitted By :} \\
+			Charan Simha Reddy Gangeyedula  \\
+			40092878 \\
+		 https://github.com/Charan1010/SOEN\_6011\_SEP\_CalculatorProject\\
+			
+		\end{center}
+           
+	\end{center}\\[2 cm]
+	
+
+    
+    
+    
+    
+	
+\end{titlepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tableofcontents
+\pagebreak
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\thesection}{\arabic{section}}
+\section{Changes from D1 to D2}
+
+   \textbf{Change in Requirements and its format} \large
+    \newline The requirement R1 in D1 has been modified.\\
+
+\begin{itemize}
+    \item \textbf{ID:} R1
+    \newline \textbf {Version:} V1
+    \newline \textbf{Type:} Functional Requirement
+    \newline \textbf{Priority:} 1
+    \newline \textbf{Risk:} High
+    \newline \textbf{Description:} When X is 2 and Y is 2 , output should be 4.
+    \newline \textbf{Test Case:} Traceble to Test Case "testdecimalExp"
+    \\
+    
+     
+   
+    \item \textbf{ID:} R2
+    \newline \textbf {Version:} V1
+    \newline \textbf{Type:} Non-functional Requirement
+    \newline \textbf{Priority:} 2
+    \newline \textbf{Risk:} Medium
+    \newline \textbf{Description:} Multiplying x raised to power m with x raised to power n will give x raised to power (m+n)  as output
+    \newline \textbf{Rationale:} This is one of the laws of power function.
+    \newline \textbf{Test Case :} Traceble to Test Case " testPowerLawProduct " 
+    
+    
+     \item \textbf{ID:} R3
+    \newline \textbf {Version:} V1
+    \newline \textbf{Type:} Non-functional Requirement
+    \newline \textbf{Priority:} 2
+    \newline \textbf{Risk:} Medium
+    \newline \textbf{Description:} Dividing x raised to power m by x raised to power n will give x raised to power (m-n) as output 
+    
+    \newline \textbf{Rationale:} This is one of the laws of power function.
+     \newline \textbf{Test Case :} Traceble to Test Case " testPowerLawDivision " 
+    
+     
+\end{itemize}
+
+
+
+\newpage
+\section{Debugging}\\
+Eclipse has a standard debugger which allows the program to open in debug mode.It supports both step by step debugging and break point based debugging.It offers, breakpoints , checkpoints and multiple views which enhance the experience of debugging.\\
+
+\textbf{Advantages}
+
+\begin{enumerate}
+  \item Can add any variable that you want to monitor to watch list.\
+  \item Eclipse debugger allows to remote debug a process on any other machine .\
+  \item You can move the current execution while executing . \
+  \item You can step in and out of the code base based on whether it matters or not.\
+  \item The debug perspective offers additional views that can be used to troubleshoot an application like Breakpoints, Variables, Debug, Console etc. \
+  \item The Eclipse Debugging Platform helps developers debug by providing buttons in the toolbar and key binding shortcuts to control program execution. \
+\end{enumerate}
+
+\textbf{Disadvantages}
+\begin{enumerate}
+\item Debugging with eclipse will become difficult when the execution  of a particular function is time bound or if there is usage of sleep statements inside the program. \
+\item It is difficult to monitor the programs that uses mutli threading . \
+\end{enumerate}
+
+
+\newpage
+\section{Quality}
+\\
+Quality attributes assessed while implementing the algorithm  are :\\
+\begin{itemize}
+  \item \textbf{Correctness:} Since I used taylor series for approximating the power function , I had to test with different number of iterations ranging from 10 to 100 to come to a conclusion on the optimum number of iterations to ensure the correctness of the function.Based on my tests , I came to a conclusion that to have minimum difference between expected output and actual output , the number of iterations needed is 13.
+  \item \textbf{Efficiency:} As number of iterations increase, it increases the time of execution of the program but less no of iterations have a big impact on the correctness of the program.Hence to have a above average efficiency and a decent correctness I have chosen the no of iterations as 13.
+  \item \textbf{Maintainability:} I have refactored the code and included the comments to improve the maintainability and understandability of the code.Have a test file to ensure that any changes made doesn't have an effect on the existing functionality of the program.
+  \item \textbf{Robustness:} I have handled the situation where the user might give a wrong input such as a string in the place of a double .Hence the program doesn't crash and notifies the user with an appropriate error message.This increases the robustness of the program.
+  \item \textbf{Usability:} I am packaging my program in an executable jar file so that other users can use my file without any difficulties.This increases the usability of the program.
+\end{itemize}
+
+\newpage
+\section{Checkstyle}
+A Java source file is described as being in Google Style if and only if it adheres to the rules below.\
+\begin{itemize}
+\item The source file name consists of the case-sensitive name of the top-level class it contains (of which there is exactly one), plus the .java extension.\
+\item All the if else statements have a opening and closing bracket regardless of the  number of lines inside the condition. \
+\item In Google Style, special prefixes or suffixes are not used. 
+\end{itemize}
+
+ \textbf{Advantages}
+ \begin{itemize}
+     \item Using google check style rather than using eclipse inbuilt code formatter  ensures the portability of check style between the ide's. 
+     \item Using check style gives us the ability to create our own rules. We can add our own custom rules.
+ \end{itemize}
+ 
+  \textbf{Disadvantages}
+  \begin{itemize} 
+    \item If you do check style formatting bit by bit rather than doing it for the whole code, you will mix real code changes with the check style changes which makes the repository messy.
+    \item Creates a resistance for  new and ever changing coding conventions as these will now create large misleading diff changes.
+  \end{itemize}
+
+\end{document}
